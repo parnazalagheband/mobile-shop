@@ -11,7 +11,6 @@ export const useShopStore = defineStore("boughtProducts", {
 
   actions: {
     addProduct(product) {
-      console.log("✅ addProduct called with:", product);
       const existingProduct = this.boughtProducts.find(
         (item) => item.id === product.id
       );
@@ -29,10 +28,11 @@ export const useShopStore = defineStore("boughtProducts", {
       }
     },
 
-removeProduct(id) {
-  this.boughtProducts = this.boughtProducts.filter(item => item.id !== id); 
-},
-
+    removeProduct(id) {
+      this.boughtProducts = this.boughtProducts.filter(
+        (item) => item.id !== id
+      );
+    },
 
     clearCart() {
       this.boughtProducts.length = 0;
